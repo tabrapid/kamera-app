@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Moon</title>
+    <title>Katta Oq Yumaloq</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,41 +13,31 @@
         body {
             margin: 0;
             padding: 0;
+            background-color: #000;
+            /* Qora fon */
             height: 100vh;
-            background: url('photo-1520034475321-cbe63696469a.jpeg') no-repeat center center fixed;
-            background-size: cover;
+            width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .moon {
-            width: 80vmin;
-            height: 80vmin;
+        .circle {
+            width: 100vmin;
+            /* Eng kichik tomon bo‘yicha 100% */
+            height: 100vmin;
             border-radius: 50%;
-            overflow: hidden;
-            box-shadow:
-                0 0 40px rgba(255, 255, 255, 0.2),
-                inset 0 0 40px rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .moon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(1.5)  sepia(1)  grayscale(0.8);
-            /* <-- bu rasmni biroz YORQIN qiladi */
+            background-color: #fff;
+            /* Oq rang */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            /* Porlash effekti */
         }
     </style>
 </head>
 
 <body>
-
-    <div class="moon">
-        <img src="lunar-radiance-clear-background-moon-free-png.webp" alt="Moon Image" />
-    </div>
-
+    <div class="circle"></div>
 </body>
 
 </html>
+
