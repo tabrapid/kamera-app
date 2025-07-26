@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Circle Cam</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .circle {
+            width: 80vmin;
+            height: 80vmin;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #fff;
+            box-shadow: 0 0 15px #00f5ff;
+            transition: 0.3s ease;
+        }
+
+        .circle.active {
+            box-shadow: 0 0 25px #00ff80;
+            border-color: #00ff80;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="circle" id="circle">
+        <video id="video" autoplay muted playsinline></video>
+    </div>
+
+    <script>
+        const video = document.getElementById("video");
+        const circle = document.getElementById("circle");
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+
+                // Qisqa delay bilan reaksiya
+                setTimeout(() => {
+                    circle.classList.add("active");
+                }, 1500);
+            })
+            .catch(err => {
+                alert("Kameraga ruxsat berilmadi ❌");
+                console.error(err);
+            });
+    </script>
+
+</body>
+
+</html>
